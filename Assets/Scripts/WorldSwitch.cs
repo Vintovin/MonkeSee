@@ -22,7 +22,7 @@ public class WorldSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E))
         {
             if (SecondWorld == false) 
             {
