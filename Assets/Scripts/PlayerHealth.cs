@@ -37,13 +37,13 @@ public class PlayerHealth : MonoBehaviour
             float healthPerc = currentHealth/maxHealth;
             HealthTrans.localScale = new Vector3(healthPerc,HealthTrans.localScale.y,HealthTrans.localScale.z);
 
-            if (healthPerc >50)
-            {
-                HealthImage.tintColor = new Color(healthPerc * 255,255,0);
-            }else if (healthPerc >0)
-            {
-                HealthImage.tintColor = new Color(255, healthPerc * 255, 0);
-            }
+            //if (healthPerc >50)
+            //{
+            //    HealthImage.tintColor = new Color(healthPerc * 255,255,0);
+            //}else if (healthPerc >0)
+            //{
+            //    HealthImage.tintColor = new Color(255, healthPerc * 255, 0);
+            //}
 
         }
 
