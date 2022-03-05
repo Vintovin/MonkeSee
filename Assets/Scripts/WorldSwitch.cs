@@ -5,9 +5,14 @@ using UnityEngine;
 public class WorldSwitch : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField]public GameObject World1;
-    [SerializeField]public GameObject World2;
+    [SerializeField] private GameObject World1;
+    [SerializeField] private GameObject World2;
+    [SerializeField] private float SwitchDebounce;
     private bool SecondWorld = false;
+
+    private float C_Debounce = 0;
+
+
 
 
     void Awake()
@@ -24,18 +29,20 @@ public class WorldSwitch : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            if (SecondWorld == false) 
+            if (C_Debounce <= 0 )
             {
-                World1.SetActive(false);
-                World2.SetActive(true);
-                SecondWorld = true;
+                SecondWorld = !SecondWorld;
+                World1.SetActive(!SecondWorld);
+                World2.SetActive(SecondWorld);
+                C_Debounce = SwitchDebounce;
             }
-            else
-            {
-                World1.SetActive(true);
-                World2.SetActive(false);
-                SecondWorld = false;
-            }
+        }
+
+        if (C_Debounce > 0)
+        {
+            C_Debounce = C_Debounce - (1 * Time.deltaTime);
+            Debug.Log(C_Debounce);
+
         }
     }
 }

@@ -6,14 +6,14 @@ public class PlrMovement : MonoBehaviour
 {
 
     private Rigidbody2D body;
-    [SerializeField]public float SpeedMultiplier;
-    [SerializeField]public float JumpSpeed;
+    [SerializeField] private float SpeedMultiplier;
+    [SerializeField] private float JumpSpeed;
 
-    [SerializeField]public LayerMask groundLayer;
+    [SerializeField] private LayerMask groundLayer;
 
-    [SerializeField]public LayerMask wallLayer;
+    [SerializeField] private LayerMask wallLayer;
 
-    [SerializeField]public float JumpDebounce;
+    [SerializeField] private float JumpDebounce;
 
     private float C_Debounce;
     private bool Hold_Jump;
