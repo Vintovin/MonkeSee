@@ -38,6 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackgroundColour2
+    uniqueID: 3843988283
+    locked: 0
+  - name: BackgroundColour1
+    uniqueID: 727655353
+    locked: 0
+  - name: Background
+    uniqueID: 3114519847
+    locked: 0
+  - name: Foreground
+    uniqueID: 1430797905
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Backpad
+    uniqueID: 825388511
+    locked: 0
+  - name: Frontpad
+    uniqueID: 4022063605
     locked: 0
