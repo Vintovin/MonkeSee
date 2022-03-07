@@ -9,6 +9,8 @@ public class AIHandler : MonoBehaviour
     [SerializeField] private float Walkspeed;
     [SerializeField] private Transform Trans;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Collider2D BodyCol;
+    [SerializeField] private LayerMask wallLayer;
     private bool IsPatroling = true;
     private bool AwaitingFlip;
 
@@ -36,7 +38,7 @@ public class AIHandler : MonoBehaviour
 
     void patrol()
     {
-        if (AwaitingFlip == true)
+        if (AwaitingFlip == true || BodyCol.IsTouchingLayers(wallLayer))
         {
             flip();
         }

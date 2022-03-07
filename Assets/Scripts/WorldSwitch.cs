@@ -49,7 +49,7 @@ public class WorldSwitch : MonoBehaviour
         if (C_Debounce > 0)
         {
             C_Debounce = C_Debounce - (1 * Time.deltaTime);
-            Debug.Log(C_Debounce);
+            
 
         }
     }
