@@ -5,6 +5,7 @@ using UnityEngine;
 public class AIHandler : MonoBehaviour
 {
 
+    [SerializeField] private GameObject AI;
     [SerializeField] private Rigidbody2D Bod;
     [SerializeField] private float Walkspeed;
     [SerializeField] private Transform Trans;
@@ -19,7 +20,12 @@ public class AIHandler : MonoBehaviour
     [SerializeField] private SpriteRenderer Sprite;
     [SerializeField] private Sprite NormalSpriteImage;
     [SerializeField] private Sprite AttackSpriteImage;
-    
+    [SerializeField] private float JumpFactor;
+    [SerializeField] private float Def_AIHealth;
+
+
+    private float AIHealth;
+
     private bool IsPatroling = true;
     private bool AwaitingFlip;
 
@@ -39,6 +45,7 @@ public class AIHandler : MonoBehaviour
         Health = Player.GetComponent<PlayerHealth>();
         ColourTime = HitDebounce / 10;
         PlayerTrans = Player.GetComponent<Rigidbody2D>();
+        AIHealth = Def_AIHealth;
     }
 
     // Start is called before the first frame update
@@ -88,7 +95,7 @@ public class AIHandler : MonoBehaviour
 
             ColourCount = ColourTime;
             Sprite.sprite = AttackSpriteImage;
-            //PlayerTrans.velocity = new Vector2();
+            PlayerTrans.velocity = new Vector2(0f, JumpFactor);
         }
         else
         {
@@ -126,6 +133,11 @@ public class AIHandler : MonoBehaviour
         else
         {
             CanAttack = true;
+        }
+
+        if (AIHealth <=0 )
+        {
+            AI.SetActive(false);
         }
     }
 }
