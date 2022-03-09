@@ -88,8 +88,17 @@ public class AIHandler : MonoBehaviour
     {
         if(CanAttack == true)
         {
-            Debug.Log("Attacked");
-            Health.currentHealth -=  attackDamage;
+            float HC = Health.currentHealth - attackDamage;
+            float finalH;
+            if (HC> 0)
+            {
+                finalH = HC;
+            }
+            else
+            {
+                finalH = 0;
+            }
+            Health.currentHealth = finalH;
             CanAttack = false;
             C_Db = HitDebounce;
 

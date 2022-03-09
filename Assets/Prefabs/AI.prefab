@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 4369601065924292887}
   - component: {fileID: 4369601065924292884}
   - component: {fileID: 4369601065924292885}
-  - component: {fileID: 2466873304050723239}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -201,20 +200,6 @@ MonoBehaviour:
   AttackSpriteImage: {fileID: 21300000, guid: f36d0d279ae02ab40b298e49975f2050, type: 3}
   JumpFactor: 5
   Def_AIHealth: 100
---- !u!114 &2466873304050723239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4369601065924292891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee28529f427c0364d8bc4c286d3ceb8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackDamage: 10
-  AttackDebounce: 2
 --- !u!1 &4369601066124686159
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -21,12 +22,17 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = DefaultHealth;
         maxHealth = DefaultHealth;
         HealthTrans = HealthBar.GetComponent<RectTransform>();
-        //HealthImage = HealthBar.GetComponent<Image>();
+        HealthImage = HealthBar.GetComponent<Image>();
     }
 
     void Start()
     {
         
+    }
+
+    void Die()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     // Update is called once per frame
@@ -37,14 +43,19 @@ public class PlayerHealth : MonoBehaviour
             float healthPerc = currentHealth / maxHealth;
             HealthTrans.localScale = new Vector3(healthPerc, HealthTrans.localScale.y, HealthTrans.localScale.z);
 
-            //if (healthPerc >50)
-            //{
-            //    HealthImage.tintColor = new Color(healthPerc * 255,255,0);
-            //}else if (healthPerc >0)
-            //{
-            //    HealthImage.tintColor = new Color(255, healthPerc * 255, 0);
-            //}
+            if ((healthPerc*100) >50)
+            {
+                HealthImage.color = new Color(1-((healthPerc-0.5f)*2), 1,0,1);
+            }else if ((healthPerc * 100) >0)
+            {
+                HealthImage.color = new Color(1, (healthPerc*2), 0, 1);
+            }
 
+        }
+
+        if (currentHealth <=0 )
+        {
+            Die();
         }
 
         //currentHealth = currentHealth - (10 * Time.deltaTime);

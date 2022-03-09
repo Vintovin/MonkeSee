@@ -5504,6 +5504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultHealth: 100
   HealthBar: {fileID: 330257919}
+  HealthImage: {fileID: 330257920}
   currentHealth: 0
 --- !u!114 &2132715587
 MonoBehaviour:
@@ -5694,7 +5695,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: AI
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: fde76e0183dc863448cf5f13dcada53c, type: 3}
 --- !u!1001 &4448048672179476515
 PrefabInstance:
