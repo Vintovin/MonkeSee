@@ -25,12 +25,12 @@ public class PlayerAttack : MonoBehaviour
     void Attack()
     {
 
-        if (Physics2D.OverlapCircle(ATrans.position, 0.4f, ) == true)
+        if (Physics2D.OverlapCircle(ATrans.position, 0.4f, AIlayer) == true)
         {
             if (CanAttack == true)
             {
                 //
-                thing = Physics2D.OverlapCircle(ATrans.position, 0.4f,AIlayer)
+                //thing = Physics2D.OverlapCircle(ATrans.position, 0.4f,AIlayer);
                 //
                 CanAttack = false;
                 C_Db = AttackDebounce;
