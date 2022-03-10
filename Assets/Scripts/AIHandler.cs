@@ -20,11 +20,11 @@ public class AIHandler : MonoBehaviour
     [SerializeField] private SpriteRenderer Sprite;
     [SerializeField] private Sprite NormalSpriteImage;
     [SerializeField] private Sprite AttackSpriteImage;
-    [SerializeField] private float JumpFactor;
-    [SerializeField] private float Def_AIHealth;
+    [SerializeField] public float JumpFactor;
+    [SerializeField] public float Def_AIHealth;
 
 
-    private float AIHealth;
+    public float AIHealth;
 
     private bool IsPatroling = true;
     private bool AwaitingFlip;
@@ -37,6 +37,11 @@ public class AIHandler : MonoBehaviour
     private float C_Db = 0;
     private float ColourTime;
     private float ColourCount = 0;
+
+    private bool flipDb = false;
+    private float flip_Def = 0.2f;
+    private float flip_C = 0f;
+
     
 
     private void Awake()
@@ -69,7 +74,11 @@ public class AIHandler : MonoBehaviour
     {
         if (AwaitingFlip == true || BodyCol.IsTouchingLayers(wallLayer))
         {
-            flip();
+            if (flipDb == false)
+            {
+                flip();
+            }
+            
         }
 
 
@@ -82,6 +91,8 @@ public class AIHandler : MonoBehaviour
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         Walkspeed *= -1;
         AwaitingFlip = false;
+        flipDb = true;
+        flip_C = flip_Def;
     }
 
     void Attack()
@@ -142,6 +153,15 @@ public class AIHandler : MonoBehaviour
         else
         {
             CanAttack = true;
+        }
+
+        if (flip_C > 0)
+        {
+            flip_C -= (1 * Time.deltaTime);
+        }
+        else
+        {
+            flipDb = false;
         }
 
         if (AIHealth <=0 )
