@@ -14,6 +14,7 @@ public class PlrMovement : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
 
     [SerializeField] private float JumpDebounce;
+    
 
     private float C_Debounce;
     private bool Hold_Jump;
@@ -21,14 +22,20 @@ public class PlrMovement : MonoBehaviour
     private int jumpCount;
     private BoxCollider2D boxcollider;
 
+    private Vector2 Prepause;
+    private bool FirstPause = false;
+    private GameStateHandler GSH;
 
-    
+
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         boxcollider = GetComponent<BoxCollider2D>();
         C_Debounce = 0;
+
+        GameObject Handlers = GameObject.FindGameObjectWithTag("GameController");
+        GSH = Handlers.GetComponent<GameStateHandler>();
     }
 
     // Start is called before the first frame update
@@ -41,42 +48,65 @@ public class PlrMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        body.velocity = new Vector2(Input.GetAxis("Horizontal")*SpeedMultiplier,body.velocity.y);
-
-
-        if((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) ))
+        if (GSH.Paused == false) 
         {
-            if((((onWall() || isJumpable()) && C_Debounce <= 0)&& Hold_Jump == false) && jumpCount < 2 ){
-                body.velocity = new Vector2(body.velocity.x,JumpSpeed);
-                C_Debounce = JumpDebounce;
-                Hold_Jump = true;
-                jumpCount = jumpCount+1;
+            
+            if (FirstPause == true)
+            {
+                body.velocity = Prepause;
+                body.gravityScale = 2.5f;
+                FirstPause = false;
             }
+
             
+            body.velocity = new Vector2(Input.GetAxis("Horizontal") * SpeedMultiplier, body.velocity.y);
+
+
+            if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)))
+            {
+                if ((((onWall() || isJumpable()) && C_Debounce <= 0) && Hold_Jump == false) && jumpCount < 2) {
+                    body.velocity = new Vector2(body.velocity.x, JumpSpeed);
+                    C_Debounce = JumpDebounce;
+                    Hold_Jump = true;
+                    jumpCount = jumpCount + 1;
+                }
+
+            }
+
+            if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W)))
+            {
+                Hold_Jump = false;
+            }
+
+
+            if (isGrounded())
+            {
+                jumpCount = 0;
+            }
+
+            if (onWall())
+            {
+                jumpCount = 0;
+            }
+
+
+            if (C_Debounce > 0)
+            {
+                C_Debounce = C_Debounce - (1 * Time.deltaTime);
+
+
+            }
         }
-
-        if(Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W))
+        else
         {
-            Hold_Jump = false;
-        }
+            if(FirstPause == false)
+            {
+                Prepause = body.velocity;
 
-
-        if(isGrounded())
-        {
-            jumpCount = 0;
-        }
-
-        if(onWall())
-        {
-            jumpCount = 0;
-        }
-
-
-        if(C_Debounce > 0)
-        {
-            C_Debounce = C_Debounce-(1*Time.deltaTime);
-            
-            
+                FirstPause = true;
+            }
+            body.velocity = new Vector2(0,0);
+            body.gravityScale = 0;
         }
     }
 

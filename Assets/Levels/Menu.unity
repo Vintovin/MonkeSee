@@ -857,6 +857,7 @@ MonoBehaviour:
   BackButton: {fileID: 2137843841}
   MainMenu: {fileID: 460854553}
   SettingsMenu: {fileID: 685527264}
+  MusicText: {fileID: 1516934029}
 --- !u!1 &1229860076
 GameObject:
   m_ObjectHideFlags: 0

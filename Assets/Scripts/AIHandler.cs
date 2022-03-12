@@ -23,7 +23,6 @@ public class AIHandler : MonoBehaviour
     [SerializeField] public float JumpFactor;
     [SerializeField] public float Def_AIHealth;
 
-
     public float AIHealth;
 
     private bool IsPatroling = true;
@@ -42,7 +41,8 @@ public class AIHandler : MonoBehaviour
     private float flip_Def = 0.2f;
     private float flip_C = 0f;
 
-    
+    private bool FirstPause = false;
+    private GameStateHandler GSH;
 
     private void Awake()
     {
@@ -51,6 +51,8 @@ public class AIHandler : MonoBehaviour
         ColourTime = HitDebounce / 10;
         PlayerTrans = Player.GetComponent<Rigidbody2D>();
         AIHealth = Def_AIHealth;
+        GameObject Handlers = GameObject.FindGameObjectWithTag("GameController");
+        GSH = Handlers.GetComponent<GameStateHandler>();
     }
 
     // Start is called before the first frame update
@@ -134,39 +136,57 @@ public class AIHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsPatroling == true)
+        if (GSH.Paused == false)
         {
-            patrol();
-        }
+            if (FirstPause == true)
+            {
+                Bod.gravityScale = 2.5f;
+                FirstPause = false;
+            }
+            if (IsPatroling == true)
+            {
+                patrol();
+            }
 
-        
-        if (Physics2D.OverlapCircle(APosi, 0.4f, playerLayer) == true)
+
+            if (Physics2D.OverlapCircle(APosi, 0.4f, playerLayer) == true)
+            {
+
+                Attack();
+            }
+
+            if (C_Db > 0)
+            {
+                C_Db -= (1 * Time.deltaTime);
+            }
+            else
+            {
+                CanAttack = true;
+            }
+
+            if (flip_C > 0)
+            {
+                flip_C -= (1 * Time.deltaTime);
+            }
+            else
+            {
+                flipDb = false;
+            }
+
+            if (AIHealth <= 0)
+            {
+                AI.SetActive(false);
+            }
+        }
+        else
         {
+            if (FirstPause == false)
+            {
+                Bod.gravityScale = 0;
+                Bod.velocity = new Vector2(0, 0);
+                FirstPause = true;
+            }
             
-            Attack();
-        }
-
-        if (C_Db > 0)
-        {
-           C_Db -= (1 * Time.deltaTime);
-        }
-        else
-        {
-            CanAttack = true;
-        }
-
-        if (flip_C > 0)
-        {
-            flip_C -= (1 * Time.deltaTime);
-        }
-        else
-        {
-            flipDb = false;
-        }
-
-        if (AIHealth <=0 )
-        {
-            AI.SetActive(false);
         }
     }
 }
