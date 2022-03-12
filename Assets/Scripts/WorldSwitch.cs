@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WorldSwitch : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class WorldSwitch : MonoBehaviour
     [SerializeField] private GameObject World2;
     [SerializeField] private float SwitchDebounce;
     [SerializeField] private GameObject Camera;
+    [SerializeField] private RectTransform ChargeBar;
+    public float Def_Charge;
+
+    public float Cur_Charge;
+
     private bool SecondWorld = false;
 
     private float C_Debounce = 0;
@@ -20,16 +26,23 @@ public class WorldSwitch : MonoBehaviour
     void Awake()
     {
         Cam = Camera.GetComponent<Camera>();
+        Cur_Charge = Def_Charge;
     }
     void Start()
     {
         
     }
 
+    public void UpdateUI()
+    {
+        float perc = Cur_Charge / Def_Charge;
+        ChargeBar.localScale = new Vector3(perc, ChargeBar.localScale.y, ChargeBar.localScale.z);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && Cur_Charge >0)
         {
             if (C_Debounce <= 0 )
             {
@@ -41,8 +54,12 @@ public class WorldSwitch : MonoBehaviour
                 }else{
                     Cam.backgroundColor = new Color(174,194,226);
                 }
-                
+                Cur_Charge -= 1;
+                float perc = Cur_Charge / Def_Charge;
+                ChargeBar.localScale = new Vector3(perc, ChargeBar.localScale.y,ChargeBar.localScale.z);
+
                 C_Debounce = SwitchDebounce;
+                
             }
         }
 

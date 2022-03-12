@@ -14,6 +14,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float JumpEffect;
     [SerializeField] private KeyCode AttackKey;
     [SerializeField] private bool MouseAttack;
+    [SerializeField] private WorldSwitch WS;
 
     private float C_Db =  0;
     private bool CanAttack = true;
@@ -42,6 +43,15 @@ public class PlayerAttack : MonoBehaviour
                 Rigidbody2D AITrans = enemy.GetComponent<Rigidbody2D>();
 
                 AI.AIHealth -= AttackDamage;
+                if (AI.AIHealth <=0)
+                {
+                    if (WS.Cur_Charge < WS.Def_Charge)
+                    {
+                        WS.Cur_Charge += 1;
+                        WS.UpdateUI();
+                    }
+                    
+                }
                 AITrans.velocity = new Vector2(0f, JumpEffect);
                 CanAttack = false;
                 C_Db = AttackDebounce;
