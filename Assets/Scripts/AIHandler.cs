@@ -72,6 +72,8 @@ public class AIHandler : MonoBehaviour
         APosi = new Vector2(ATrans.position.x, ATrans.position.y);
     }
 
+
+
     void patrol()
     {
         if (AwaitingFlip == true || BodyCol.IsTouchingLayers(wallLayer))
