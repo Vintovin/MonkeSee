@@ -23,6 +23,9 @@ public class AIHandler : MonoBehaviour
     [SerializeField] public float JumpFactor;
     [SerializeField] public float Def_AIHealth;
 
+    [SerializeField] private bool UnlockOnDeath;
+    [SerializeField] private GameObject UnlockBarrier;
+
     public float AIHealth;
 
     private bool IsPatroling = true;
@@ -177,6 +180,14 @@ public class AIHandler : MonoBehaviour
 
             if (AIHealth <= 0)
             {
+
+                if (UnlockOnDeath == true)
+                {
+                    if (AIHealth <= 0)
+                    {
+                        UnlockBarrier.SetActive(false);
+                    }
+                }
                 AI.SetActive(false);
             }
         }

@@ -22,12 +22,19 @@ public class GameStateHandler : MonoBehaviour
     [SerializeField] private Slider MusicSlider;
     [SerializeField] private Text MusicText;
 
+    [SerializeField] private string nextLevel;
+
     private bool PauseDB = false;
     private float CDB = 0;
 
     void Start()
     {
         
+    }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene(nextLevel);
     }
 
     private void Awake()
