@@ -2855,6 +2855,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8173172618265413858, guid: ca1bad822d11d494dbd0c83d252b5ced, type: 3}
   m_PrefabInstance: {fileID: 1958932927}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &743228947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 743228948}
+  m_Layer: 0
+  m_Name: BossMusicZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &743228948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743228947}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2056722654}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &763654682
 GameObject:
   m_ObjectHideFlags: 0
@@ -6205,6 +6235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1615260338}
   - component: {fileID: 1615260337}
+  - component: {fileID: 1615260339}
   m_Layer: 0
   m_Name: GameMusic
   m_TagString: Untagged
@@ -6222,9 +6253,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8b8f195ea2fcd3f4f833e94f31976f2c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f4278a0fd6d51f546bd071bf5a9b0d44, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6322,6 +6353,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1615260339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615260336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7829c5f9a8506c745acedbcdfc4f5f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossMusic: {fileID: 8300000, guid: a0fd8fc2759abeb41bc4eb50be5b5152, type: 3}
+  BackgroundMusic: {fileID: 8300000, guid: f4278a0fd6d51f546bd071bf5a9b0d44, type: 3}
+  ActiveAudio: {fileID: 1615260337}
+  BossMusicTransition: {fileID: 743228948}
+  PlayerTrans: {fileID: 2132715583}
 --- !u!1 &1642759479
 GameObject:
   m_ObjectHideFlags: 0
@@ -7564,6 +7612,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 960027082}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2056722653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2056722654}
+  m_Layer: 0
+  m_Name: MusicChangeZones
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2056722654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056722653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 46.83, y: 3.1, z: -14.571147}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 743228948}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2069387308
 PrefabInstance:
