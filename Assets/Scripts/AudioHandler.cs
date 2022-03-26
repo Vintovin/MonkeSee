@@ -41,19 +41,19 @@ public class AudioHandler : MonoBehaviour
 
         if(PlayerTrans.position.x >= BossMusicTransition.position.x)
         {
-            Debug.Log("In Enemy Zone");
+            
             if (ActiveAudio.clip != BossMusic)
             {
-                Debug.Log("Change to fight");
+                
                 ChangeAudio(BossMusic);
             }
         }
         else
         {
-            Debug.Log("Not in enemy Zone");
+           
             if(ActiveAudio.clip != BackgroundMusic)
             {
-                Debug.Log("Change to normal");
+                
                 ChangeAudio(BackgroundMusic);
             }
         }

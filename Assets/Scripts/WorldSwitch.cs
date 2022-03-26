@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class WorldSwitch : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -11,6 +12,7 @@ public class WorldSwitch : MonoBehaviour
     [SerializeField] private float SwitchDebounce;
     [SerializeField] private GameObject Camera;
     [SerializeField] private RectTransform ChargeBar;
+    [SerializeField] private GameObject SwitchIcon;
     public float Def_Charge;
 
     public float Cur_Charge;
@@ -19,14 +21,14 @@ public class WorldSwitch : MonoBehaviour
 
     private float C_Debounce = 0;
     private Camera Cam;
-
-
+    private Image Icon;
 
 
     void Awake()
     {
         Cam = Camera.GetComponent<Camera>();
         Cur_Charge = Def_Charge;
+        Icon = SwitchIcon.GetComponent<Image>();
     }
     void Start()
     {
@@ -62,12 +64,14 @@ public class WorldSwitch : MonoBehaviour
                 
             }
         }
-
+        
         if (C_Debounce > 0)
         {
             C_Debounce = C_Debounce - (1 * Time.deltaTime);
+            Icon.color = new Color32(71,188,255,30);
+        }else{
+            Icon.color = new Color32(71,188,255,255);
             
-
         }
     }
 }
