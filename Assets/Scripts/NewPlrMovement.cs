@@ -31,7 +31,7 @@ public class NewPlrMovement : MonoBehaviour
     private bool FirstPause = false;
     private GameStateHandler GSH;
 
-    private bool wasJumpable = false;
+    //private bool wasJumpable = false;
 
     //How long to prevent horizontal movement after the player wall jumps
     public float wallJumpMoveStopTime = 0.25f;

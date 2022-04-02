@@ -6370,6 +6370,7 @@ MonoBehaviour:
   ActiveAudio: {fileID: 1615260337}
   BossMusicTransition: {fileID: 743228948}
   PlayerTrans: {fileID: 2132715583}
+  GameHandler: {fileID: 0}
 --- !u!1 &1642759479
 GameObject:
   m_ObjectHideFlags: 0
@@ -8048,6 +8049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 152c62054c652ec44a3a8fceacd7327b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coll: {fileID: 0}
   SpeedMultiplier: 10
   JumpSpeed: 7.5
   groundLayer:
@@ -8057,6 +8059,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   JumpDebounce: 0.5
+  wallSlideSpeed: 0.1
+  wallJumpMoveStopTime: 0.125
 --- !u!50 &2132715586
 Rigidbody2D:
   serializedVersion: 4
