@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlrMovement : MonoBehaviour
+public class NewPlrMovement : MonoBehaviour
 {
     public float dynFriction;
     public float statFriction;
@@ -31,7 +31,7 @@ public class PlrMovement : MonoBehaviour
     private bool FirstPause = false;
     private GameStateHandler GSH;
 
-    private bool wasJumpable = false;
+    //private bool wasJumpable = false;
 
     //How long to prevent horizontal movement after the player wall jumps
     public float wallJumpMoveStopTime = 0.25f;

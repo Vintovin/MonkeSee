@@ -20,8 +20,10 @@ public class AIHandler : MonoBehaviour
     [SerializeField] private SpriteRenderer Sprite;
     [SerializeField] private Sprite NormalSpriteImage;
     [SerializeField] private Sprite AttackSpriteImage;
-    [SerializeField] public float JumpFactor;
-    [SerializeField] public float Def_AIHealth;
+    public float JumpFactor;
+    public float Def_AIHealth;
+
+    [SerializeField] private Animator Anim;
 
     [SerializeField] private bool UnlockOnDeath;
     [SerializeField] private GameObject UnlockBarrier;
@@ -106,6 +108,7 @@ public class AIHandler : MonoBehaviour
     {
         if(CanAttack == true)
         {
+            Anim.SetBool("Attacking",true);
             float HC = Health.currentHealth - attackDamage;
             float finalH;
             if (HC> 0)
@@ -123,6 +126,7 @@ public class AIHandler : MonoBehaviour
             ColourCount = ColourTime;
             Sprite.sprite = AttackSpriteImage;
             PlayerTrans.velocity = new Vector2(0f, JumpFactor);
+            
         }
         else
         {
@@ -136,6 +140,11 @@ public class AIHandler : MonoBehaviour
             }
         }
 
+    }
+
+    void KillAI()
+    {
+        AI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -166,6 +175,7 @@ public class AIHandler : MonoBehaviour
             }
             else
             {
+                Anim.SetBool("Attacking",false);
                 CanAttack = true;
             }
 
@@ -180,7 +190,7 @@ public class AIHandler : MonoBehaviour
 
             if (AIHealth <= 0)
             {
-
+                Anim.SetBool("Dead",true);
                 if (UnlockOnDeath == true)
                 {
                     if (AIHealth <= 0)
@@ -188,7 +198,7 @@ public class AIHandler : MonoBehaviour
                         UnlockBarrier.SetActive(false);
                     }
                 }
-                AI.SetActive(false);
+                
             }
         }
         else
