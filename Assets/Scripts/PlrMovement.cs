@@ -23,11 +23,13 @@ public class PlrMovement : MonoBehaviour
     private float C_Debounce;
     private bool Hold_Jump;
 
+    public KeyCode SprintKey;
     private int jumpCount;
     private BoxCollider2D boxcollider;
 
     private Vector2 Prepause;
     private bool FirstPause = false;
+
     private GameStateHandler GSH;
 
     //private bool wasJumpable = false;
@@ -36,7 +38,8 @@ public class PlrMovement : MonoBehaviour
     public float wallJumpMoveStopTime = 0.25f;
     float wallJumpMoveStopTimeRemaining;
 
-
+    private float BaseSpeed = SpeedMultiplier;
+    private float CurrentSpeed = BaseSpeed;
 
     private void Awake()
     {
@@ -150,6 +153,15 @@ public class PlrMovement : MonoBehaviour
             if (onWall() && velocity.y <= 0.0f)
             {
                 velocity.y = Mathf.Clamp(velocity.y, -wallSlideSpeed, 0.0f);
+            }
+            
+            if(Input.GetKeyDown(SprintKey))
+            {
+                CurrentSpeed *= 2;
+            }
+            if(Input.GetKeyUp(SprintKey))
+            {
+                CurrentSpeed = BaseSpeed;
             }
 
             if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)))
