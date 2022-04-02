@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlrMovement : MonoBehaviour
+public class NewPlrMovement : MonoBehaviour
 {
     public float dynFriction;
     public float statFriction;
