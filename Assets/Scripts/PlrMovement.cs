@@ -17,6 +17,8 @@ public class PlrMovement : MonoBehaviour
 
     [SerializeField] private float JumpDebounce;
 
+    [SerializeField] private float SprintMultiplier;
+
     //How fast the player slides down walls
     public float wallSlideSpeed = 0.1f;
 
@@ -38,8 +40,10 @@ public class PlrMovement : MonoBehaviour
     public float wallJumpMoveStopTime = 0.25f;
     float wallJumpMoveStopTimeRemaining;
 
-    private float BaseSpeed = SpeedMultiplier;
-    private float CurrentSpeed = BaseSpeed;
+    private float BaseSpeed;
+    private float CurrentSpeed;
+
+    private float Stamina; 
 
     private void Awake()
     {
@@ -56,7 +60,8 @@ public class PlrMovement : MonoBehaviour
     void Start()
     {
         coll = GetComponent<Collider2D>();
-        
+        BaseSpeed = SpeedMultiplier;
+        CurrentSpeed = BaseSpeed;
     }
 
     
@@ -145,7 +150,7 @@ public class PlrMovement : MonoBehaviour
             //Only set x velocity when a key is input
             if ((Input.GetAxis("Horizontal") != 0.0f || isGrounded()) && wallJumpMoveStopTimeRemaining <= 0.0f)
             {
-                velocity.x = Input.GetAxis("Horizontal") * SpeedMultiplier;
+                velocity.x = Input.GetAxis("Horizontal") * CurrentSpeed;
 
             }
 
@@ -157,10 +162,12 @@ public class PlrMovement : MonoBehaviour
             
             if(Input.GetKeyDown(SprintKey))
             {
-                CurrentSpeed *= 2;
+                
+                CurrentSpeed = BaseSpeed * SprintMultiplier;
             }
             if(Input.GetKeyUp(SprintKey))
             {
+                
                 CurrentSpeed = BaseSpeed;
             }
 
@@ -235,7 +242,5 @@ public class PlrMovement : MonoBehaviour
             body.gravityScale = 0;
         }
     }
-
-
-    
+ 
 }
