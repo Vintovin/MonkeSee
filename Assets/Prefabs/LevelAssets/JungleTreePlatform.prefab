@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5477470456514808727}
   - component: {fileID: 7776858279006675751}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8957674328442969944}
   - component: {fileID: 8239922578701213626}
   - component: {fileID: 4972851041494647374}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JungleTreePlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

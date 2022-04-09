@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2941314894163700425}
   - component: {fileID: 2800041556566813227}
   - component: {fileID: 1261771733022783455}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AlienFloatingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

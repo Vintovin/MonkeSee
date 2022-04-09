@@ -9,7 +9,7 @@ public class WorldSwitch : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject World1;
     [SerializeField] private GameObject World2;
-    [SerializeField] private float SwitchDebounce;
+    [SerializeField] public float SwitchDebounce;
     [SerializeField] private GameObject Camera;
     [SerializeField] private RectTransform ChargeBar;
     [SerializeField] private GameObject SwitchIcon;
