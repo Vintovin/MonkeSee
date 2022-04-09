@@ -31,7 +31,11 @@ public class AIHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         float HealthPerc = aiHandler.AIHealth / aiHandler.Def_AIHealth;
+        if(HealthPerc < 0 ){
+            HealthPerc = 0.0f;
+        }
         Block.localScale = new Vector3(HealthPerc, 1,1);
         Vector3 NewPos = new Vector3(0 - ((HealthPerc - 1) / 2), 0, 0);
         if (aiTransform.localScale.x >0)
