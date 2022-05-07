@@ -8248,7 +8248,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   JumpDebounce: 0.5
+  SprintMultiplier: 0
   wallSlideSpeed: 0.1
+  SprintKey: 0
   wallJumpMoveStopTime: 0.25
 --- !u!50 &2132715586
 Rigidbody2D:
