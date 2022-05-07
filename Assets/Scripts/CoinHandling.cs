@@ -21,7 +21,7 @@ public class CoinHandling : MonoBehaviour
     private SpriteRenderer SR;
     ////////////////////////////////////////////
     ////////////////////////////////////////////
-    private int CoinWait = 15;
+    private int CoinWait = 20;
     private float CF = 0;
     private int SpriteCount = 0;
     ////////////////////////////////////////////
@@ -29,6 +29,7 @@ public class CoinHandling : MonoBehaviour
     void Start()
     {
         SR = GetComponent<SpriteRenderer>();
+        SpriteCount = Random.Range(0,Slist.Length);
     }
     ///////////////////////////////////////////
     void ChangeSprite()
