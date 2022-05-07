@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4878936787499698759
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7838793825982999656, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: Jungle
+      value: 
+      objectReference: {fileID: 21300000, guid: f8d8b3472edd19f4da1679b5feabec87, type: 3}
+    - target: {fileID: 7838793825982999656, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: Terraformed
+      value: 
+      objectReference: {fileID: 21300000, guid: 40529dc66ec6ff2419964b4332c7e34c, type: 3}
+    - target: {fileID: 7838793825982999658, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f8d8b3472edd19f4da1679b5feabec87, type: 3}
+    - target: {fileID: 7838793825982999659, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838793825982999659, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838793825982999659, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838793825982999659, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838793825982999659, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838793825982999659, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838793825982999659, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838793825982999659, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838793825982999659, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838793825982999659, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838793825982999659, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838793825982999661, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
+      propertyPath: m_Name
+      value: Ground Texture Jungle 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6242f02f9dba8354e98d0e34a070af0a, type: 3}
