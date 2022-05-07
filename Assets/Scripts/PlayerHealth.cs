@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     private RectTransform HealthTrans;
     [SerializeField] private Image HealthImage;
 
-    static int maxHealth;
+    [HideInInspector] public int maxHealth;
     public float currentHealth;
 
     private void Awake()

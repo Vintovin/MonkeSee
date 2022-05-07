@@ -148,10 +148,19 @@ public class PlrMovement : MonoBehaviour
             Vector2 velocity = body.velocity;
 
             //Only set x velocity when a key is input
-            if ((Input.GetAxis("Horizontal") != 0.0f || isGrounded()) && wallJumpMoveStopTimeRemaining <= 0.0f)
+            if ((Input.GetAxis("Horizontal") != 0.0f) && wallJumpMoveStopTimeRemaining <= 0.0f)
             {
                 velocity.x = Input.GetAxis("Horizontal") * CurrentSpeed;
+                GetComponent<Animator>().SetBool("Running",true);
 
+            }
+            else if (isGrounded()) {
+                velocity.x = 0.0f;
+                GetComponent<Animator>().SetBool("Running",false);
+            }
+            //Not running
+            else {
+                GetComponent<Animator>().SetBool("Running",false);
             }
 
             //wall slide
