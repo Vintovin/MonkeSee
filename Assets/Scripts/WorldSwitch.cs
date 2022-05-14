@@ -52,9 +52,10 @@ public class WorldSwitch : MonoBehaviour
                 World1.SetActive(!SecondWorld);
                 World2.SetActive(SecondWorld);
                 if(SecondWorld == true){
-                    Cam.backgroundColor = new Color(103,0,142);
+                    Cam.backgroundColor = new Color(103 / 255.0f ,0, 142 / 255.0f);
                 }else{
-                    Cam.backgroundColor = new Color(174,194,226);
+                    Cam.backgroundColor = new Color(49 / 255.0f ,77 / 255.0f ,121 / 255.0f);
+                    //Debug.Log(Cam.backgroundColor);
                 }
                 Cur_Charge -= 1;
                 float perc = Cur_Charge / Def_Charge;

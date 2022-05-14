@@ -192,7 +192,8 @@ public class PlrMovement : MonoBehaviour
             {
                 if ((((onWall() || isJumpable()) && C_Debounce <= 0) && Hold_Jump == false) && jumpCount < 2)
                 {
-
+                    GetComponent<Animator>().SetTrigger("Jump");
+                    
                     //Wall jump from left wall, jumps right away from wall
                     if (onWallLeft())
                     {
@@ -218,6 +219,7 @@ public class PlrMovement : MonoBehaviour
                     C_Debounce = JumpDebounce;
                     Hold_Jump = true;
                     jumpCount = jumpCount + 1;
+                    
                 }
             }
 
@@ -230,11 +232,13 @@ public class PlrMovement : MonoBehaviour
 
             if (isGrounded())
             {
+                
                 jumpCount = 0;
             }
 
             if (onWall())
             {
+                //GetComponent<Animator>().SetBool("Jump",false);
                 jumpCount = 0;
             }
 
@@ -258,6 +262,7 @@ public class PlrMovement : MonoBehaviour
             body.velocity = new Vector2(0, 0);
             body.gravityScale = 0;
         }
+        
     }
  
 }
