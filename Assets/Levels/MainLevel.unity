@@ -2132,7 +2132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f19e3dea90bc84b800d4f1fae06033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
+  character: {fileID: 1061606963}
   offset: {x: 0, y: 0, z: -10}
 --- !u!1 &809784834
 GameObject:
@@ -3271,6 +3271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca1bad822d11d494dbd0c83d252b5ced, type: 3}
+--- !u!4 &1061606963 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1724947679503585957, guid: 7d421c266bea1b84480aa225d71e0a19, type: 3}
+  m_PrefabInstance: {fileID: 1688369078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1149180696
 GameObject:
   m_ObjectHideFlags: 0
@@ -5582,6 +5587,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1724947679503585956, guid: 7d421c266bea1b84480aa225d71e0a19, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 806252186}
     - target: {fileID: 1724947679503585956, guid: 7d421c266bea1b84480aa225d71e0a19, type: 3}
       propertyPath: World1
       value: 
