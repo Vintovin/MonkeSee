@@ -2429,7 +2429,7 @@ MonoBehaviour:
   Audio: {fileID: 1615260337}
   MusicSlider: {fileID: 1321322286}
   MusicText: {fileID: 398911913}
-  nextLevel: Menu
+  nextLevel: MainLevel
 --- !u!4 &431652595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4502143505852450617, guid: 7d15dc07213e6804ca5f189099bfec82, type: 3}
