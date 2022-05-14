@@ -152,7 +152,15 @@ public class PlrMovement : MonoBehaviour
             {
                 velocity.x = Input.GetAxis("Horizontal") * CurrentSpeed;
                 GetComponent<Animator>().SetBool("Running",true);
+                if(velocity.x > 0)
+                {
+                    GetComponent<SpriteRenderer>().flipX = false;
+                }else
+                {
+                    //GetComponent<Animator>().SetBool("Left",true);
+                    GetComponent<SpriteRenderer>().flipX = true;
 
+                }
             }
             else if (isGrounded()) {
                 velocity.x = 0.0f;
