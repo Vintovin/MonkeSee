@@ -10,7 +10,7 @@ Westminster/Sony Games Academy - Monke Studio
 
 ##
 # Discord link
-https://discord.gg/FYpmwcef
+**Private Link - Has been moved **
 
 ##
 
