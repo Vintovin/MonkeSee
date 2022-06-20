@@ -3,7 +3,7 @@ Westminster/Sony Games Academy - Monke Studio
 
 ##
 
- - [ ] MONKE
+ - [x] MONKE
 
 
 
